@@ -104,7 +104,8 @@ CREATE TABLE worldwidebank.us_customers(
   height int,
   latitude double,
   longitude double)
-STORED AS ORC;
+STORED AS ORC
+tblproperties("transactional"="false");
 
 INSERT INTO worldwidebank.us_customers SELECT * FROM worldwidebank.us_customers_temp;
 
@@ -217,7 +218,8 @@ CREATE TABLE worldwidebank.ww_customers(
   height int,
   latitude double,
   longitude double)
-STORED AS ORC;
+STORED AS ORC
+tblproperties("transactional"="false");
 
 INSERT OVERWRITE Table worldwidebank.ww_customers 
 SELECT 
@@ -283,7 +285,8 @@ CREATE TABLE worldwidebank.eu_countries(
   countryname string,
   countrycode string,
   region string)
-STORED AS ORC;
+STORED AS ORC
+tblproperties("transactional"="false");
 
 INSERT INTO worldwidebank.eu_countries SELECT * FROM worldwidebank.eu_countries_temp;
 
@@ -312,7 +315,8 @@ CREATE TABLE finance.tax_2015(
   fed_tax double,
   state_tax double,
   local_tax double)
-STORED AS ORC;
+STORED AS ORC
+tblproperties("transactional"="false");
 
 INSERT INTO finance.tax_2015 SELECT * FROM finance.tax_2015_temp;
 
@@ -354,7 +358,8 @@ CREATE TABLE cost_savings.claim_savings(
 `latitude` double,
 `longitude` double)
 COMMENT 'Claims Savings'
-STORED AS ORC;
+STORED AS ORC
+tblproperties("transactional"="false");
 
 
 INSERT INTO cost_savings.claim_savings SELECT * FROM cost_savings.claim_savings_temp;
