@@ -362,7 +362,7 @@ STORED AS ORC
 tblproperties("transactional"="false");
 
 
-INSERT OVERWRITE TABLE cost_savings.claim_savings SELECT * FROM cost_savings.claim_savings_temp;
+INSERT INTO cost_savings.claim_savings SELECT * FROM cost_savings.claim_savings_temp;
 
 DROP TABLE cost_savings.claim_savings_temp;
 
@@ -411,7 +411,7 @@ COMMENT 'Provider Summary'
 STORED AS ORC;
 
 
-INSERT INTO claim.provider_summary SELECT * FROM claim.provider_summary_temp;
+INSERT OVERWRITE TABLE claim.provider_summary SELECT * FROM claim.provider_summary_temp;
 
 DROP TABLE claim.provider_summary_temp;
 
